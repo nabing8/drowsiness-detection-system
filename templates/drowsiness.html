@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Drowsiness Detection Results</title>
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='css/bootstrap.min.css') }}"
+    />
+    <script src="{{ url_for('static', filename='js/bootstrap.min.js') }}"></script>
+  </head>
+  <body class="bg-light">
+    <div class="p-4">
+      <h1>Drowsiness Detection Results</h1>
+      {% if image_filenames %}
+      <p>Found {{ image_filenames|length }} drowsy images:</p>
+      <div
+        class="d-flex align-items-center justify-content-center flex-wrap gap-4"
+      >
+        {% for filename, duration in image_filenames %}
+        <div>
+          <img
+            src="{{ url_for('static', filename='records/' + filename) }}"
+            alt="{{ duration }}"
+            width="400"
+            height="300"
+          />
+          <p class="text-center">{{ duration }}</p>
+        </div>
+        {% endfor %}
+      </div>
+      {% else %}
+      <p>No drowsy images found.</p>
+      {% endif %}
+    </div>
+  </body>
+</html>

@@ -1,0 +1,6 @@
+records/
+static/records/
+static/uploads
+venv/
+*.webm
+*.pdf

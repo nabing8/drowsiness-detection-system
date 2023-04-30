@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Drowsiness Detection</title>
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='css/bootstrap.min.css') }}"
+    />
+    <script src="{{ url_for('static', filename='js/bootstrap.min.js') }}"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  </head>
+  <body class="bg-light">
+    <div
+      class="container mx-auto vh-100 d-flex justify-content-center align-items-center"
+    >
+      <div class="bg-white border shadow-sm rounded p-4">
+        <h1>Drowsiness Detection Web Portal</h1>
+        <p>Please upload a video file to detect drowsiness:</p>
+        <form action="/upload" method="post" enctype="multipart/form-data">
+          <input
+            type="file"
+            name="file"
+            id="file-input"
+            class="form-control"
+            accept="video/*"
+            required
+          />
+          <input
+            type="submit"
+            value="Upload"
+            id="submit"
+            class="btn btn-primary mt-2"
+          />
+        </form>
+        <div class="progress d-none mt-2" id="progress-bar">
+          <div
+            class="progress-bar progress-bar-striped progress-bar-animated"
+            role="progressbar"
+            style="width: 100%"
+            aria-valuenow="100"
+            aria-valuemin="0"
+            aria-valuemax="100"
+          >
+            Processing, this may take a while. Please wait
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+  <script>
+    window.addEventListener("load", function () {
+      var submitButton = document.getElementById("submit");
+      var fileInput = document.getElementById("file-input");
+      var progressBar = document.getElementById("progress-bar");
+
+      submitButton.addEventListener("click", function () {
+        if (fileInput.value) {
+          progressBar.classList.remove("d-none");
+        }
+      });
+    });
+  </script>
+</html>
