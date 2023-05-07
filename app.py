@@ -72,10 +72,6 @@ frameCheck = 20
 def index():
     return render_template('index.html')
 
-@app.route('/test')
-def test():
-    return render_template('drowsiness.html')
-
 @app.route('/upload', methods=['POST'])
 def upload():
     if request.method == 'POST':

@@ -50,7 +50,7 @@ def saveImage(frame):
 
 (lStart, lEnd) = face_utils.FACIAL_LANDMARKS_IDXS['left_eye']
 (rStart, rEnd) = face_utils.FACIAL_LANDMARKS_IDXS['right_eye']
-(mStart, mEnd) = (49, 68)
+(mStart, mEnd) = (48, 68)
 
 frameFlag = 0
 earThresh = 0.25

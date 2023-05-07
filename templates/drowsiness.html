@@ -7,17 +7,24 @@
       href="{{ url_for('static', filename='css/bootstrap.min.css') }}"
     />
     <script src="{{ url_for('static', filename='js/bootstrap.min.js') }}"></script>
+    <style>
+      body {
+        background-color: #e3e3e3;
+      }
+    </style>
   </head>
-  <body class="bg-light">
+  <body>
     <div class="p-4">
-      <h1>Drowsiness Detection Results</h1>
+      <h1 class="text-center">Drowsiness Detection Results</h1>
       {% if image_filenames %}
-      <p>Found {{ image_filenames|length }} drowsy images:</p>
+      <p class="text-center">
+        Found {{ image_filenames|length }} drowsy images:
+      </p>
       <div
         class="d-flex align-items-center justify-content-center flex-wrap gap-4"
       >
         {% for filename, duration in image_filenames %}
-        <div>
+        <div class="border shadow rounded bg-white">
           <img
             src="{{ url_for('static', filename='records/' + filename) }}"
             alt="{{ duration }}"
